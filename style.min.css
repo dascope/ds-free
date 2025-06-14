@@ -187,7 +187,7 @@ input:checked + .slider:before {
   color: #fff;
 }
 
-/* Overriden by js once info-icon is clicked */
+/* Overridden by JS once info-icon is clicked */
 .info-icon:hover .tooltip {
   visibility: visible;
   opacity: 1;
