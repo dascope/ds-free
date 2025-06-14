@@ -186,17 +186,22 @@
 
     <!-- Schedule -->
     <div id="schedule-tab" class="tab-content" style="display: none">
-      <div class="input-container" id="scheduleForm">
+      <form class="input-container waiting-list-form" id="scheduleForm">
         <div class="instructions">
-          To schedule meetings and webinars, you'll need to sign up to a Digital Samba Free account.
+          To schedule meetings and webinars, you'll need a Digital Samba Free account. Join our waiting list and we'll notify you as soon as it's ready.
         </div>
-        <div class="info-icon">
-          <button>Sign up now</button>
-          <span class="tooltip">
-            Accounts are coming soon. Please check back here in a few weeks or <a href="" target="_blank">click here</a> to be notified.
-          </span>
-        </div>
-      </div>
+        <input
+          type="email"
+          id="waitingEmail"
+          placeholder="Your email address"
+          required
+        />
+        <label class="checkbox-container">
+          <input type="checkbox" id="marketingConsent" required />
+          I agree to receive updates and marketing communication from Digital Samba.
+        </label>
+        <button type="submit">Join Waiting List</button>
+      </form>
     </div>
 
     <!-- Descriptive Text -->

@@ -361,3 +361,16 @@ a:visited {
   color: #000;
   background: white;
 }
+
+/* Waiting list styles */
+.waiting-list-form label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.waiting-list-form input[type="checkbox"] {
+  width: auto;
+}
