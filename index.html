@@ -190,12 +190,23 @@
         <div class="instructions">
           To schedule meetings and webinars, you'll need to sign up to a Digital Samba Free account.
         </div>
-        <div class="info-icon">
-          <button>Sign up now</button>
-          <span class="tooltip">
-            Accounts are coming soon. Please check back here in a few weeks or <a href="" target="_blank">click here</a> to be notified.
-          </span>
-        </div>
+        <form id="signupForm">
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+          <label class="consent-label">
+            <input type="checkbox" id="marketingConsent" required />
+            I agree to receive marketing communications and accept the
+            <a href="https://www.digitalsamba.com/data-privacy" target="_blank"
+              >privacy policy</a
+            >.
+          </label>
+          <button type="submit">Sign up</button>
+        </form>
+        <p id="signupMessage" style="display: none"></p>
       </div>
     </div>
 
