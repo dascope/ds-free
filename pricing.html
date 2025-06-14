@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Samba Pricing Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffffff;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .ds-pricing-calculator {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .ds-pricing-calculator h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: #003366;
+    }
+
+    .ds-pricing-calculator label {
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .ds-pricing-calculator input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .ds-pricing-calculator button {
+      background: #0066ff;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    .ds-pricing-calculator button:hover {
+      background: #0055cc;
+    }
+
+    .ds-pricing-result {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      background: #e8f0fe;
+      padding: 1rem;
+      border-left: 4px solid #0066ff;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="pricing-calculator" class="ds-pricing-calculator">
+    <h2>Calculate Your Monthly Cost</h2>
+    <label>
+      Monthly Meeting Hours:
+      <input type="number" id="hours" min="0" placeholder="e.g. 30">
+    </label>
+    <label>
+      Number of Hosts:
+      <input type="number" id="hosts" min="1" placeholder="e.g. 2">
+    </label>
+    <label>
+      Max Participants per Meeting:
+      <input type="number" id="participants" min="1" placeholder="e.g. 20">
+    </label>
+    <button id="calculate">Calculate</button>
+    <div id="result" class="ds-pricing-result"></div>
+  </div>
+
+  <script>
+    document.getElementById("calculate").addEventListener("click", function () {
+      const hours = parseInt(document.getElementById("hours").value, 10);
+      const hosts = parseInt(document.getElementById("hosts").value, 10);
+      const participants = parseInt(document.getElementById("participants").value, 10);
+
+      if (isNaN(hours) || isNaN(hosts) || isNaN(participants)) {
+        document.getElementById("result").textContent = "Please enter all values.";
+        return;
+      }
+
+      let plan = "Free";
+      let cost = 0;
+
+      if (hours > 10 || participants > 10 || hosts > 1) {
+        plan = "Create";
+        cost = 19 * hosts;
+      }
+
+      if (hours > 50 || participants > 25) {
+        plan = "Scale";
+        cost = 49 * hosts;
+      }
+
+      document.getElementById("result").innerHTML = `
+        Recommended Plan: <strong>${plan}</strong><br>
+        Estimated Monthly Cost: <strong>$${cost.toFixed(2)}</strong>
+      `;
+    });
+  </script>
+</body>
+</html>

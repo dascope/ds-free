@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Digital Samba Free, Secure, Private, European Video Conferencing
+    </title>
+    <meta
+      name="description"
+      content="Host secure, GDPR-compliant video calls with EU data residency. Free. No downloads, no signup, fully browser-based, and privacy-focused."
+    />
+    <link rel="canonical" href="https://free.digitalsamba.com/welcome/" />
+    <!-- Social -->
+    <meta
+      property="og:title"
+      content="Digital Samba Free, Secure, Private, European Video Conferencing"
+    />
+    <meta
+      property="og:description"
+      content="Host secure, GDPR-compliant video calls with EU data residency. Free. No downloads, no signup, fully browser-based, and privacy-focused."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://yourdomain.com/secure-video-call"
+    />
+    <meta
+      property="og:image"
+      content="https://free.digitalsamba.com/welcome/social-preview.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Digital Samba Free, Secure, Private, European Video Conferencing"
+    />
+    <meta
+      name="twitter:description"
+      content="Host secure, GDPR-compliant video calls with EU data residency."
+    />
+    <meta
+      name="twitter:image"
+      content="https://free.digitalsamba.com/welcome/social-preview.png"
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Digital Samba Free" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.min.css" />
+  </head>
+  <body>
+    <!-- Logo -->
+    <div class="logo-container">
+      <img
+        src="https://cdn.glitch.global/7e004317-c5da-4941-a36d-b56be978ab07/Digital%20Samba%20-%20video%20conferencing%20software%2C%20webinar%20software%2C%20virtual%20classroom%2C%20video%20api.png?v=1742827272144"
+        alt="Digital Samba Logo"
+      />
+    </div>
+
+    <!-- 
+    onfocus="this.placeholder=''"
+    onblur="this.placeholder='Enter your name'"
+    -->
+
+    <!-- Tabs -->
+    <div class="tab-container">
+      <button class="tab-button active" onclick="switchTab('instant')">
+        Instant Meeting
+      </button>
+      <button class="tab-button" onclick="switchTab('generate')">
+        Generate Link
+      </button>
+      <button class="tab-button" onclick="switchTab('schedule')">
+        Schedule
+      </button>
+    </div>
+
+    <!-- Instant Meeting -->
+    <div id="instant-tab" class="tab-content active-tab">
+      <div class="input-container">
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your name"
+          onkeypress="handleKeyPress(event)"
+          autocomplete="off"
+        />
+        <button onclick="startVideoCall()">Start Video Call</button>
+
+        <!-- E2EE Toggle -->
+        <div class="toggle-container">
+          <label class="switch">
+            <input
+              type="checkbox"
+              id="e2eeToggle"
+              onclick="startFirework(event)"
+              aria-labelledby="e2eeLabel"
+            />
+            <span class="slider round"></span>
+            <span class="e2eeLabel" id="e2eeLabel"
+              >Enable End-to-End Encryption (E2EE)</span
+            >
+          </label>
+
+          <div
+            class="info-icon"
+            id="infoIcon"
+            role="button"
+            aria-label="More info about E2EE"
+          >
+            &#9432;
+            <span class="tooltip" id="tooltip">
+              E2EE adds the highest level of security to your video call. Note:
+              It disables Q&A, Polling, and saving Whiteboards.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generate Link -->
+    <div id="generate-tab" class="tab-content" style="display: none">
+      <div class="input-container" id="generateForm">
+        <div class="instructions">
+          Generate a link to share with your invitees. The link will stay active
+          for 1 month.
+        </div>
+        <button onclick="generateRoomLink()">Generate Link</button>
+        <div class="toggle-container">
+          <label class="switch">
+            <input
+              type="checkbox"
+              id="e2eeToggleGenerate"
+              onclick="startFirework(event)"
+            />
+            <span class="slider round"></span>
+            <span class="e2eeLabel">Enable End-to-End Encryption (E2EE)</span>
+          </label>
+          <div
+            class="info-icon"
+            role="button"
+            aria-label="More info about E2EE"
+          >
+            &#9432;
+            <span class="tooltip">
+              E2EE adds the highest level of security to your video call. Note:
+              It disables Q&A, Polling, and saving Whiteboards.
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Link Box -->
+      <div id="generatedBox" style="display: none">
+      <div class="instructions">
+          The link will stay active for 1 month.
+        </div>
+      <div class="copy-box">
+        <div class="copy-button-container">
+          <button
+            id="copyLinkButton"
+            class="copy-button"
+            aria-label="Copy Link"
+          >
+            Copy link
+          </button>
+        </div>
+        <a id="generatedLink" href="#" target="_blank"></a>
+      </div>
+    </div>
+    </div>
+
+    <!-- Schedule -->
+    <div id="schedule-tab" class="tab-content" style="display: none">
+      <div class="input-container" id="scheduleForm">
+        <div class="instructions">
+          To schedule meetings and webinars, you'll need to sign up to a Digital Samba Free account.
+        </div>
+        <div class="info-icon">
+          <button>Sign up now</button>
+          <span class="tooltip">
+            Accounts are coming soon. Please check back here in a few weeks or <a href="" target="_blank">click here</a> to be notified.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Descriptive Text -->
+    <p class="description">
+      Free, secure, private, European video conferencing.<br />
+      By clicking Start Video Call or Generate Link you agree to the
+      <a
+        href="https://www.digitalsamba.com/redirect/digital-samba-free-terms-and-conditions"
+        target="_blank"
+        >Terms and Conditions</a
+      >
+      of Digital Samba Free.
+    </p>
+
+    <!-- Footer Links -->
+    <div class="footer">
+      <a href="https://www.digitalsamba.com/free">Is this really free?</a> |
+      <a href="https://docs.digitalsamba.com/reference/">API Docs</a> |
+      <a href="https://www.digitalsamba.com/about-us">About Digital Samba</a> |
+      <a href="https://www.digitalsamba.com/data-privacy">Privacy</a> |
+      <a href="https://www.digitalsamba.com/legal-information">Legal</a>
+      <br />
+    </div>
+
+    <script src="script.min.js"></script>
+    <script src="ph.min.js"></script>
+  </body>
+</html>
