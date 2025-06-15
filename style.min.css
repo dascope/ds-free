@@ -113,7 +113,7 @@ button:hover {
   height: 0;
 }
 
-input[type="checkbox"] {
+.switch input[type="checkbox"] {
   -webkit-appearance: none;
 }
 
@@ -365,7 +365,7 @@ a:visited {
 /* Waiting list styles */
 .waiting-list-form label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   font-size: 14px;
   color: #333;
@@ -373,4 +373,6 @@ a:visited {
 
 .waiting-list-form input[type="checkbox"] {
   width: auto;
+  appearance: checkbox;
+  -webkit-appearance: checkbox;
 }
