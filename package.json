@@ -1,0 +1,13 @@
+{
+  "name": "ds-free",
+  "version": "1.0.0",
+  "description": "The easiest way to create and schedule meetings using Digital Samba's Video Conferencing API.",
+  "main": "ph.min.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
