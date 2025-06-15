@@ -190,6 +190,7 @@
         <div class="instructions">
           To schedule meetings and webinars, you'll need a Digital Samba Free account. Join our waiting list and we'll notify you as soon as it's ready.
         </div>
+        <p id="scheduleError" class="error-message" style="display: none"></p>
         <input
           type="email"
           id="waitingEmail"
@@ -198,7 +199,9 @@
         />
         <label class="checkbox-container">
           <input type="checkbox" id="marketingConsent" required />
-          I agree to receive updates and marketing communication from Digital Samba.
+          <span>
+            I agree to receive updates and marketing communication from Digital Samba.<span class="required-indicator">*</span>
+          </span>
         </label>
         <button type="submit">Join Waiting List</button>
       </form>
