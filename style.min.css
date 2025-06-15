@@ -376,3 +376,14 @@ a:visited {
   appearance: checkbox;
   -webkit-appearance: checkbox;
 }
+
+.error-message {
+  color: #f06859;
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.required-indicator {
+  color: #f06859;
+  margin-left: 2px;
+}
