@@ -101,6 +101,7 @@
           autocomplete="off"
         />
         <button onclick="startVideoCall()">Start Video Call</button>
+        <p id="instantError" class="error-message" style="display: none"></p>
 
         <!-- E2EE Toggle -->
         <div class="toggle-container">
@@ -141,6 +142,7 @@
           for 1 month.
         </div>
         <button onclick="generateRoomLink()">Generate Link</button>
+        <p id="generateError" class="error-message" style="display: none"></p>
         <div class="toggle-container">
           <label class="switch">
             <input
@@ -191,6 +193,7 @@
           To schedule meetings and webinars, you'll need a Digital Samba Free account. Join our waiting list and we'll notify you as soon as it's ready.
         </div>
         <p id="scheduleError" class="error-message" style="display: none"></p>
+        <p id="scheduleSuccess" class="success-message" style="display: none"></p>
         <input
           type="email"
           id="waitingEmail"
