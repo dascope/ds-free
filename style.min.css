@@ -379,8 +379,22 @@ a:visited {
 
 .error-message {
   color: #f06859;
+  background: #ffd6d0;
+  border: 1px solid #f06859;
   font-size: 14px;
   margin: 0 0 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.success-message {
+  color: #3771e0;
+  background: #e6f0ff;
+  border: 1px solid #3771e0;
+  font-size: 14px;
+  margin: 0 0 10px;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .required-indicator {
