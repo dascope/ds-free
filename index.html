@@ -100,6 +100,7 @@
           onkeypress="handleKeyPress(event)"
           autocomplete="off"
         />
+        <p id="startError" class="error-message" style="display: none"></p>
         <button onclick="startVideoCall()">Start Video Call</button>
 
         <!-- E2EE Toggle -->
@@ -130,7 +131,6 @@
             </span>
           </div>
         </div>
-        <p id="startError" class="error-message" style="display: none"></p>
       </div>
     </div>
 
@@ -192,21 +192,23 @@
         <div class="instructions">
           To schedule meetings and webinars, you'll need a Digital Samba Free account. Join our waiting list and we'll notify you as soon as it's ready.
         </div>
-        <p id="scheduleError" class="error-message" style="display: none"></p>
-        <p id="scheduleSuccess" class="success-message" style="display: none"></p>
         <input
           type="email"
           id="waitingEmail"
           placeholder="Your email address"
           required
         />
+        <p id="scheduleEmailError" class="error-message" style="display: none"></p>
         <label class="checkbox-container">
           <input type="checkbox" id="marketingConsent" required />
           <span>
-            I agree to receive updates and marketing communication from Digital Samba.<span class="required-indicator">*</span>
+            I agree to receive updates and marketing communication from Digital
+            Samba.<span class="required-indicator">*</span>
           </span>
         </label>
+        <p id="scheduleConsentError" class="error-message" style="display: none"></p>
         <button type="submit">Join Waiting List</button>
+        <p id="scheduleSuccess" class="success-message" style="display: none"></p>
       </form>
     </div>
 
