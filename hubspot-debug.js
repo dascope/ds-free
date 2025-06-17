@@ -6,6 +6,15 @@ function showMessage(msg) {
   document.getElementById('result').textContent = msg;
 }
 
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) {
+    return parts.pop().split(';').shift();
+  }
+  return undefined;
+}
+
 if (window.location.protocol === 'file:') {
   showMessage('Run this page from a local web server to avoid CORS issues.');
 }
@@ -13,6 +22,7 @@ if (window.location.protocol === 'file:') {
 document.getElementById('submit').addEventListener('click', async () => {
   const email = document.getElementById('email').value;
   const resultEl = document.getElementById('result');
+  const hutk = getCookie('hubspotutk');
 
   const payload = {
     submittedAt: Date.now(),
@@ -20,6 +30,7 @@ document.getElementById('submit').addEventListener('click', async () => {
     context: {
       pageUri: window.location.href,
       pageName: document.title,
+      hutk,
     },
     legalConsentOptions: {
       consent: {
@@ -53,7 +64,9 @@ document.getElementById('submit').addEventListener('click', async () => {
     });
     const text = await res.text();
     resultEl.textContent = `${res.status} ${res.statusText}\n${text}`;
+    console.log('HubSpot response:', res.status, text);
   } catch (err) {
     resultEl.textContent = `Request failed: ${err.message}`;
+    console.error('HubSpot request failed:', err);
   }
 });
