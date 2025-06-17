@@ -373,7 +373,6 @@ a:visited {
   width: 100%;
   max-width: 500px;
   text-align: left;
-  align-self: flex-start;
 }
 
 .waiting-list-form input[type="checkbox"] {
