@@ -67,6 +67,7 @@ button {
   max-width: 250px;
   padding: 15px;
   font-size: 18px;
+  font-weight: normal;
   border: solid 1px #3771e0;
   background-color: #3771e0;
   color: white;
