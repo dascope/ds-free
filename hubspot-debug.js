@@ -4,7 +4,7 @@ const region = 'eu1';
 
 function getHubSpotEndpoint() {
   const host = region.toLowerCase() === 'eu1'
-    ? 'api.hsforms.eu'
+    ? 'api.hsforms.com'
     : 'api.hsforms.com';
   return `https://${host}/submissions/v3/integration/submit/${portalId}/${formId}`;
 }
