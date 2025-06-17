@@ -3,8 +3,18 @@ const formId = '84801971-906e-44ef-b711-7ed8f5b814ee';
 const region = 'eu1';
 
 function getHubSpotEndpoint() {
-  const host = region.toLowerCase() === 'eu1' ? 'api.hsforms.eu' : 'api.hsforms.com';
+  const host = region.toLowerCase() === 'eu1'
+    ? 'api.hsforms.eu'
+    : 'api.hsforms.com';
   return `https://${host}/submissions/v3/integration/submit/${portalId}/${formId}`;
+}
+
+function showMessage(msg) {
+  document.getElementById('result').textContent = msg;
+}
+
+if (window.location.protocol === 'file:') {
+  showMessage('Run this page from a local web server to avoid CORS issues.');
 }
 
 document.getElementById('submit').addEventListener('click', async () => {
@@ -26,12 +36,15 @@ document.getElementById('submit').addEventListener('click', async () => {
   try {
     const res = await fetch(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
       body: JSON.stringify(payload),
     });
     const text = await res.text();
     resultEl.textContent = `${res.status} ${res.statusText}\n${text}`;
   } catch (err) {
-    resultEl.textContent = `Error: ${err}`;
+    resultEl.textContent = `Request failed: ${err.message}`;
   }
 });
