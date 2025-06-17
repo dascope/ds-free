@@ -370,6 +370,10 @@ a:visited {
   gap: 8px;
   font-size: 14px;
   color: #333;
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+  align-self: flex-start;
 }
 
 .waiting-list-form input[type="checkbox"] {
