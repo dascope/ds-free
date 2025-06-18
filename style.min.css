@@ -68,8 +68,8 @@ button {
   padding: 15px;
   font-size: 18px;
   font-weight: normal;
-  border: solid 1px #3771e0;
-  background-color: #3771e0;
+  border: solid 1px #ff0000;
+  background-color: #ff0000;
   color: white;
   border-radius: 6px;
   cursor: pointer;
@@ -77,7 +77,7 @@ button {
 }
 
 button:hover {
-  background-color: #264f9c;
+  background-color: #cc0000;
 }
 
 .toggle-container {
@@ -297,15 +297,15 @@ a:visited {
 }
 
 .tab-button:hover {
-  color: #3771e0;
-  border-bottom: 3px solid #3771e0;
+  color: #ff0000;
+  border-bottom: 3px solid #ff0000;
   background-color: #ffffff;
 }
 
 .tab-button.active {
-  border-bottom: 3px solid #3771e0;
+  border-bottom: 3px solid #ff0000;
   /*font-weight: bold;*/
-  color: #3771e0;
+  color: #ff0000;
 }
 
 .tab-content {
@@ -347,20 +347,20 @@ a:visited {
 }
 
 .copy-button {
-  background: white;
-  border: 1px solid #ccc;
+  background: #ff0000;
+  border: 1px solid #ff0000;
   padding: 5px;
   margin: 0;
   font-size: 14px;
-  color: #666;
+  color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
 .copy-button:hover {
-  color: #000;
-  background: white;
+  color: #fff;
+  background: #cc0000;
 }
 
 /* Waiting list styles */
