@@ -231,11 +231,11 @@ input:checked + .slider:before {
 
 .footer {
   width: 100%;
-  position: absolute;
-  bottom: 10px;
+  position: relative;
   text-align: center;
   font-size: 14px;
   color: #666;
+  margin-top: 20px;
 }
 
 a {
