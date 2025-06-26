@@ -405,3 +405,8 @@ a:visited {
   color: #f06859;
   margin-left: 2px;
 }
+
+#generateAnotherLink {
+  display: inline-block;
+  margin-top: 20px;
+}
