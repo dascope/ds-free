@@ -156,4 +156,47 @@ test('generateRoomLink fetches room link and updates DOM', async () => {
   assert.strictEqual(btn.disabled, false);
 });
 
+// scheduleForm submission should hide form and show thank you message
+test('scheduleForm submits data and shows thank you', async () => {
+  const { context, elements } = loadScript({
+    elements: {
+      scheduleForm: createElement(),
+      scheduleEmailError: createElement(),
+      scheduleConsentError: createElement(),
+      scheduleError: createElement(),
+      waitingEmail: { value: 'user@example.com', checkValidity: () => true },
+      marketingConsent: { checked: true },
+      scheduleThankYou: createElement()
+    }
+  });
+
+  context.window.location = { href: 'http://example.com' };
+
+  const calls = [];
+  context.fetch = async (url, opts) => {
+    calls.push({ url, opts });
+    return {};
+  };
+
+  elements.scheduleForm.dispatchEvent('submit', { preventDefault: () => {} });
+  await Promise.resolve();
+
+  assert.strictEqual(calls.length, 1);
+  assert.strictEqual(
+    calls[0].url,
+    'https://api.hsforms.com/submissions/v3/integration/submit/2868499/bbf946bd-ad04-43a9-ad0b-4282efe1d8f9'
+  );
+  const body = JSON.parse(calls[0].opts.body);
+  assert.deepStrictEqual(body.fields, [
+    { name: 'email', value: 'user@example.com' }
+  ]);
+
+  assert.strictEqual(elements.scheduleForm.style.display, 'none');
+  assert.strictEqual(elements.scheduleThankYou.style.display, 'block');
+  assert.strictEqual(
+    elements.scheduleThankYou.textContent,
+    "Thank you! We'll let you know when scheduling becomes available."
+  );
+});
+
  
