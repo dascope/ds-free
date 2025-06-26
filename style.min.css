@@ -405,3 +405,7 @@ a:visited {
   color: #f06859;
   margin-left: 2px;
 }
+
+#generateAnotherButton {
+  margin-top: 20px;
+}
